@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Africa</title>
+        <script type="text/javascript" src="d3.min.js"></script>
+        <script type="text/javascript" src="d3.geo.min.js"></script>
+        <script type="text/javascript" src="d3.layout.min.js"></script>
+        <script type="text/javascript" src="jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="jquery.tipsy.js"></script>
+	    <link type="text/css" rel="stylesheet" href="africa.css"/>
+	    <link type="text/css" rel="stylesheet" href="colorbrewer.css"/>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+        	d3.json("africa.geojson", function(shapes) {
+        		d3.json("wbcountries.json", function(countries) {
+/*        
+        function MergeJSON (shapes.features.country.gdp, countries.features.country.gdp) {
+ 	     for (var z in ob) {
+           o[z] = ob[z];
+      }
+      return o;
+}
+*/});
+});
+   d3.select("body")
+   	.append("svg:text")
+   	.text("Hello");
+        </script>
+    </body>
+</html>
