@@ -34,14 +34,6 @@ var proj = d3.geo.equirectangular().scale(1).translate([0,0]),
 		.attr("y", height-5)
 		.text("Invested Development 2012");
 
-function MergeJSON ("africa.geojson", "wbcountries.json") {
-      for (var z in ob) {
-           o[z] = ob[z];
-      }
-      return o;
-}
-
-
 // Map drawing.
 	d3.json("africa.geojson", function(shapes) {
 		var bounds0 = d3.geo.bounds(shapes),
@@ -77,7 +69,8 @@ function MergeJSON ("africa.geojson", "wbcountries.json") {
 			.classed("overlay", true)
 			.attr("fill-opacity", 0)
 			.attr("d", path)
-			.append("original-title").text(function(d) {
+			.append("original-title")
+			.text(function(d) {
 				var c = proj(d.geometry.coordinates[0][0]);
 				if(c[0] > width/2) {
 					if(c[1] > height/2) {
