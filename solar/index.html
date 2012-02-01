@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Invested Development</title>
+    <meta name="Analysis of the Solar Industry in India" content="">
+    <meta name="John Coogan, Invested Development" content="">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Preloaded Scripts -->
+    <script src="d3.js"></script>
+
+    <!-- Styles -->
+    <link href="bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+		body {
+		  padding-top: 60px;
+		  padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		  padding: 9px 0;
+		}
+		.hero-unit {
+		  width: 550px;
+		  height: 450px;
+		}
+		body {
+			font: 300 14px Helvetica Neue;
+			fill: #666;
+			}
+
+		text.title {
+			font: 300 24px Helvetica Neue;
+			fill: #666;
+			}
+
+		.chart rect {
+			fill: steelblue;
+			stroke: white;
+			}
+    </style>
+    <link href="bootstrap-responsive.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+          </a>
+          <a class="brand" href="#">India Solar Projection</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Visualization</a></li>
+              <li><a href="http://investeddevelopment.com/portfolio/">Portfolio</a></li>
+              <li><a href="http://investeddevelopment.com/blog/">Blog</a></li>
+ 			  <li><a href="http://bostoneta.com/">BETA</a></li>
+ 			  <li><a href="http://investeddevelopment.com/about/">About</a></li>
+              <li><a href="http://investeddevelopment.com/blog/">Back to the blog post.</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+            <li class="nav-header">Expenditure Assumptions</li>
+			<li><a href="#gdp">GDP Growth Rate: <span id="range2">6</span>%</a></li>
+			<li><input id="input2" type="range" min="400" max="800" value="600" step="10" onchange="redraw2(this.value)" /></li>
+			<li><a href="#capital">Formation of Fixed Capital: <span id="range3">35</span>%</a></li>
+			<li><input id="input3" type="range" min="3000" max="4000" value="3500" step="10" onchange="redraw3(this.value)" /></li>
+			<li><a href="#energy">Investment in Energy: <span id="range4">20</span>%</a></li>
+			<li><input id="input4" type="range" min="1500" max="2500" value="2000" step="10" onchange="redraw4(this.value)" /></li>
+			<li><a href="#solar">Growth of Solar Market Share: <span id="range5">25</span>%</a></li>
+			<li><input id="input5" type="range" min="2000" max="3000" value="2500" step="10" onchange="redraw5(this.value)" /></li>
+            <li class="nav-header">Cost Assumptions</li>
+            <li><a href="#cost">Cost per Solar Watt: $<span id="range1">1</span></a></li>
+			<li><input id="input1" type="range" min="50" max="200" value="100" step="2" onchange="redraw1(this.value)" /></li>
+            <li class="nav-header">Control Panel</li>
+			<li><button class="btn danger" onclick="redrawAll()">Reset to Initial Values</button></li>
+            </ul>
+          </div><!--/.well -->        
+        </div><!--/span-->
+        <div class="span9">
+          <div class="hero-unit" id="chart">
+			<script src="projection.js"></script>
+          </div>
+          <div class="row">
+            <div class="span4" id="gdp">
+              <h4>Gross Domestic Product</h4>
+			  <h5>(current US$)</h5>
+              <p>Ten-year projections based off of EIU / World Bank / Wall Street model.</p>
+              <p><a class="btn" href="http://data.worldbank.org/country/india">View Source »</a></p>
+            </div><!--/span-->
+            <div class="span4" id="capital">
+              <h4>Gross Fixed Capital Formation</h4>
+			  <h5>(% of GDP)</h5>
+              <p>Estimated based on current trend and comparables.</p>
+              <p><a class="btn" href="http://data.worldbank.org/country/india">View Source »</a></p>
+            </div><!--/span-->
+          </div><!--/row--></br>
+          <div class="row">
+            <div class="span4" id="energy">
+              <h4>Investment in Energy with Private Participation</h4>
+			  <h5>(% of GFCF)</h5>
+              <p>Need to validate trend (increasing energy investment expected).</p>
+              <p><a class="btn" href="http://data.worldbank.org/country/india">View Source »</a></p>
+            </div><!--/span-->
+            <div class="span4" id="solar">
+              <h4>Investment in Solar</h4>
+			  <h5>(% of Energy Investment)</h5>
+              <p>Standard growth model derived from average solar investment share growth from inception of government program in developed markets.</p>
+              <p><a class="btn" href="http://www.bp.com/statisticalreview">View Source »</a></p>
+            </div><!--/span-->
+	        </div><!--/row--></br>
+	        <div class="row">
+            <div class="span4" id="cost">
+              <h4>Total Cost per Watt</h4>
+			  <h5>U.S. Dollars</h5>
+              <p>Our cost per Watt estimates were based on data from Green World Investor, Eco Friendly Mag and the U.S. Department of Energy.</p>
+              <p><a class="btn" href="http://www.solarbuzz.com/facts-and-figures">View Source »</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h4>Exogenous Factors</h4>
+			  <h5>Other things to consider</h5>
+              <p>Both upside and downside risks are discussed at length in the post.</p>
+              <p><a class="btn" href="http://investeddevelopment.com/blog/">View Post »</a></p>
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>© Invested Development 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="jquery.js"></script>
+    <script src="bootstrap-transition.js"></script>
+    <script src="bootstrap-collapse.js"></script>
+</body>
+</html>
