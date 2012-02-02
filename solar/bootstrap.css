@@ -103,11 +103,12 @@ body {
   background-color: #ffffff;
 }
 a {
-  color: #0088cc;
+  color: #69732E;
+  font-weight: 500;
   text-decoration: none;
 }
 a:hover {
-  color: #005580;
+  color: #89963D;
   text-decoration: underline;
 }
 .row {
@@ -2097,14 +2098,14 @@ button.btn.small, input[type="submit"].btn.small {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 .nav-list .nav-header {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: bold;
   line-height: 18px;
   color: #999999;
   text-transform: uppercase;
 }
 .nav-list > li + .nav-header {
-  margin-top: 9px;
+  margin-top: 11px;
 }
 .nav-list .active > a {
   color: #ffffff;
@@ -2530,6 +2531,7 @@ button.btn.small, input[type="submit"].btn.small {
   padding: 10px 10px 11px;
   line-height: 19px;
   color: #999999;
+  font-weight: 300;
   text-decoration: none;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }

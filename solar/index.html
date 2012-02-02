@@ -31,21 +31,34 @@
 			font: 300 14px Helvetica Neue;
 			fill: #666;
 			}
-
 		text.title {
 			font: 300 24px Helvetica Neue;
 			fill: #666;
 			}
-
 		.chart rect {
-			fill: steelblue;
+			fill: #575E27;
 			stroke: white;
 			}
-    </style>
+	    </style>
+
     <link href="bootstrap-responsive.css" rel="stylesheet">
+    <style type="text/css">
+		.navbar-inner {
+			background-color: #575E27;
+			background-image: -moz-linear-gradient(top, #5D6629, #4F5723);
+			background-image: -ms-linear-gradient(top, #5D6629, #4F5723);
+			background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5D6629), to(#4F5723));
+			background-image: -webkit-linear-gradient(top, #5D6629, #4F5723);
+			background-image: -o-linear-gradient(top, #5D6629, #4F5723);
+			background-image: linear-gradient(top, #5D6629, #4F5723);
+/*			background-image: url(http://investeddevelopment.com/wp-content/themes/investeddevelopment/images/id_background_texture.jpg);*/
+		 .navbar .brand {
+			color: #D26014;
+		}
+	 </style>
   </head>
 
-  <body>
+  <body >
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -76,17 +89,17 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
             <li class="nav-header">Expenditure Assumptions</li>
-			<li><a href="#gdp">GDP Growth Rate: <span id="range2">6</span>%</a></li>
-			<li><input id="input2" type="range" min="400" max="800" value="600" step="10" onchange="redraw2(this.value)" /></li>
-			<li><a href="#capital">Formation of Fixed Capital: <span id="range3">35</span>%</a></li>
-			<li><input id="input3" type="range" min="3000" max="4000" value="3500" step="10" onchange="redraw3(this.value)" /></li>
-			<li><a href="#energy">Investment in Energy: <span id="range4">20</span>%</a></li>
-			<li><input id="input4" type="range" min="1500" max="2500" value="2000" step="10" onchange="redraw4(this.value)" /></li>
-			<li><a href="#solar">Growth of Solar Market Share: <span id="range5">25</span>%</a></li>
-			<li><input id="input5" type="range" min="2000" max="3000" value="2500" step="10" onchange="redraw5(this.value)" /></li>
+			<li rel="popover" id="infotip" title="Gross Domestic Product" data-content="GDP refers to the market value of all final goods and services produced within a country."><a href="#gdp">GDP Growth Rate: <span id="range2">6</span>%</a></p>
+			<input id="input2" type="range" min="400" max="800" value="600" step="10" onchange="redraw2(this.value)" /></li>
+			<li rel="popover" id="infotip" title="Fixed Capital Formation" data-content="Fixed capital formation measures the value of new fixed assets by businesses, governments and households. It roughly shows how much of the new value added in the economy (GDP growth) is invested rather than consumed."><a href="#capital">Formation of Fixed Capital: <span id="range3">35</span>%</a></p>
+			<input id="input3" type="range" min="3000" max="4000" value="3500" step="10" onchange="redraw3(this.value)" /></li>
+			<li rel="popover" id="infotip" title="Energy Investment" data-content="Investment in energy projects with private participation measures infrastructure projects in energy that directly or indirectly serve the public."><a href="#energy">Investment in Energy: <span id="range4">20</span>%</a></p>
+			<input id="input4" type="range" min="1500" max="2500" value="2000" step="10" onchange="redraw4(this.value)" /></li>
+			<li rel="popover" id="infotip" title="Rate of Solar Adoption" data-content="This metric measures the annual increase in the share of energy investment that goes towards solar."><a href="#solar">Growth of Solar Market Share: <span id="range5">25</span>%</a></p>
+			<input id="input5" type="range" min="2000" max="3000" value="2500" step="10" onchange="redraw5(this.value)" /></li>
             <li class="nav-header">Cost Assumptions</li>
-            <li><a href="#cost">Cost per Solar Watt: $<span id="range1">1</span></a></li>
-			<li><input id="input1" type="range" min="50" max="200" value="100" step="2" onchange="redraw1(this.value)" /></li>
+            <li rel="popover" id="infotip" title="Cost of Additional Capacity" data-content="This value represents the average total cost of an additional installed watt of solar capacity. It includes the cost of the PV module, inverter, balance of systems and installation."><a href="#cost">Cost per Solar Watt: $<span id="range1">1</span></a></p>
+			<input id="input1" type="range" min="50" max="200" value="100" step="2" onchange="redraw1(this.value)" /></li>
             <li class="nav-header">Control Panel</li>
 			<li><button class="btn danger" onclick="redrawAll()">Reset to Initial Values</button></li>
             </ul>
@@ -100,13 +113,13 @@
             <div class="span4" id="gdp">
               <h4>Gross Domestic Product</h4>
 			  <h5>(current US$)</h5>
-              <p>Ten-year projections based off of EIU / World Bank / Wall Street model.</p>
+              <p>GDP refers to the market value of all final goods and services produced within a country.</p>
               <p><a class="btn" href="http://data.worldbank.org/country/india">View Source »</a></p>
             </div><!--/span-->
             <div class="span4" id="capital">
               <h4>Gross Fixed Capital Formation</h4>
 			  <h5>(% of GDP)</h5>
-              <p>Estimated based on current trend and comparables.</p>
+              <p>Fixed capital formation measures the value of new fixed assets by businesses, governments and households. It roughly shows how much of the new value added in the economy (GDP growth) is invested rather than consumed.</p>
               <p><a class="btn" href="http://data.worldbank.org/country/india">View Source »</a></p>
             </div><!--/span-->
           </div><!--/row--></br>
@@ -114,26 +127,26 @@
             <div class="span4" id="energy">
               <h4>Investment in Energy with Private Participation</h4>
 			  <h5>(% of GFCF)</h5>
-              <p>Need to validate trend (increasing energy investment expected).</p>
+              <p>Investment in energy projects with private participation measures infrastructure projects in energy that directly or indirectly serve the public.</p>
               <p><a class="btn" href="http://data.worldbank.org/country/india">View Source »</a></p>
             </div><!--/span-->
             <div class="span4" id="solar">
               <h4>Investment in Solar</h4>
 			  <h5>(% of Energy Investment)</h5>
-              <p>Standard growth model derived from average solar investment share growth from inception of government program in developed markets.</p>
+              <p>This metric measures the annual increase in the share of energy investment that goes towards solar.</p>
               <p><a class="btn" href="http://www.bp.com/statisticalreview">View Source »</a></p>
             </div><!--/span-->
 	        </div><!--/row--></br>
 	        <div class="row">
             <div class="span4" id="cost">
               <h4>Total Cost per Watt</h4>
-			  <h5>U.S. Dollars</h5>
-              <p>Our cost per Watt estimates were based on data from Green World Investor, Eco Friendly Mag and the U.S. Department of Energy.</p>
+			  <h5>(current US$)</h5>
+              <p>This value represents the average total cost of an additional installed watt of solar capacity. It includes the cost of the PV module, inverter, balance of systems and installation. Our cost per Watt estimates were based on data from Green World Investor, Eco Friendly Mag and the U.S. Department of Energy.</p>
               <p><a class="btn" href="http://www.solarbuzz.com/facts-and-figures">View Source »</a></p>
             </div><!--/span-->
             <div class="span4">
               <h4>Exogenous Factors</h4>
-			  <h5>Other things to consider</h5>
+			  <h5>(Other variables to consider)</h5>
               <p>Both upside and downside risks are discussed at length in the post.</p>
               <p><a class="btn" href="http://investeddevelopment.com/blog/">View Post »</a></p>
             </div><!--/span-->
@@ -145,6 +158,7 @@
 
       <footer>
         <p>© Invested Development 2012</p>
+<a href="#" rel='tooltip' id="element" title="first tooltip">TOOLTIP TEST</a>
       </footer>
 
     </div><!--/.fluid-container-->
@@ -156,5 +170,8 @@
     <script src="jquery.js"></script>
     <script src="bootstrap-transition.js"></script>
     <script src="bootstrap-collapse.js"></script>
+    <script src="bootstrap-tooltip.js"></script>
+    <script src="bootstrap-popover.js"></script>
+	<script src="application.js"></script>
 </body>
 </html>
