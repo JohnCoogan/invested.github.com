@@ -99,6 +99,38 @@ function draw() {
 		})
 		.style("stroke", "#ccc");
 
+	// Add Legend.
+	chart.append("rect")
+		.attr("x", 20)
+		.attr("y", 8)
+		.attr("width", 250)
+		.attr("height", 135)
+		.style("stroke", "#000")
+		.style("fill", "#fff");
+	
+	// Add label to Legend.
+	chart.append("text")
+		.attr("class", "title")
+		.attr("x", 70)
+		.attr("y", 40)
+		.text("2020 Estimate:");
+
+	// Add output to Legend.
+	chart.append("text")
+		.attr("class", "title")
+		.style("font-size", 90)
+		.style("font-weight", 400)
+		.attr("x", 30)
+		.attr("y", 125)
+		.text(Math.round(data[10]/100)/10);
+	chart.append("text")
+		.attr("class", "title")
+		.style("font-size", 30)
+		.style("font-weight", 400)
+		.attr("x", 210)
+		.attr("y", 125)
+		.text("GW");
+
 	// Create bars.
 	chart.selectAll("rect")
 		.data(data)
