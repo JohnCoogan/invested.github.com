@@ -2,9 +2,9 @@
 var gdpinput = 963404740694;
 	gfcfinput = 294242862795;
 	eiinput = 40144162229;
-	siinput = 225818182;
+	siinput = 234600000; 
 	currentmw = 189;
-	costinput = 3;
+	costinput = 3.4;
 	cost = costinput;
 	gdp = gdpinput;
 	gfcf =  gfcfinput / gdp;
@@ -13,7 +13,7 @@ var gdpinput = 963404740694;
 	fgfcf = .35;
 	fenergyinv = .2;
 	fsolarinv = .25;
-	fgdpg = 0.06;
+	fgdpg = 0.08;
 	fcost = 1;
 	years = 10;
 	cgdpg = 0.088064;
@@ -66,7 +66,7 @@ calc()
 
 	var w = 500,
 		h = 400,
-		maxheight = 40000,
+		maxheight = 30000,
 		p = 50;
 		
 	var chart = d3.select("#chart").append("svg")
@@ -244,14 +244,14 @@ function redraw5(newValue) {
 
 function redrawAll() {
 	fcost = 1;
-	fgdpg = 0.06;
+	fgdpg = 0.08;
 	fgfcf = .35;
 	fenergyinv = .2;
 	fsolarinv = .25;
 	document.getElementById("range1").innerHTML=1;
 	document.getElementById("input1").value=100;
-	document.getElementById("range2").innerHTML=6;
-	document.getElementById("input2").value=600;
+	document.getElementById("range2").innerHTML=8;
+	document.getElementById("input2").value=800;
 	document.getElementById("range3").innerHTML=35;
 	document.getElementById("input3").value=3500;
 	document.getElementById("range4").innerHTML=20;
