@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('li[rel=popover]').popover({
-		placement: 'bottom'
+		placement: 'right'
 	});
 	$('a[rel=tooltip]').tooltip();
 });
