@@ -56,16 +56,16 @@
 			<input id="input2" type="range" min="600" max="1000" value="800" step="10" onchange="redraw2(this.value)" /></li>
 			<li rel="popover" id="infotip" title="Fixed Capital Formation" data-content="Fixed capital formation measures the value of new fixed assets by businesses, governments and households. It roughly shows how much of the new value added in the economy (GDP growth) is invested rather than consumed."><a href="#capital">Formation of Fixed Capital: <span id="range3"></span>%</a></p>
 			Infrastructure Spending: $ <span id="range30"></span> Trillion</p>
-			<input id="input3" type="range" min="3000" max="4000" value="3500" step="10" onchange="redraw3(this.value)" /></li>
+			<input id="input3" type="range" min="3000" max="4000" value="4000" step="10" onchange="redraw3(this.value)" /></li>
 			<li rel="popover" id="infotip" title="Energy Investment" data-content="Investment in energy projects with private participation measures infrastructure projects in energy that directly or indirectly serve the public."><a href="#energy">Investment in Energy: <span id="range4"></span>%</a></p>
 			Energy Spending: $ <span id="range40"></span> Billion</p>
-			<input id="input4" type="range" min="1500" max="2500" value="2000" step="10" onchange="redraw4(this.value)" /></li>
+			<input id="input4" type="range" min="500" max="1000" value="750" step="10" onchange="redraw4(this.value)" /></li>
 			<li rel="popover" id="infotip" title="Rate of Solar Adoption" data-content="This metric measures the annual increase in the share of energy investment that goes towards solar."><a href="#solar">Solar Share of Energy: <span id="range5"></span>%</a></p>
 			Solar Spending: $ <span id="range50"></span> Billion</p>
-			<input id="input5" type="range" min="250" max="750" value="500" step="10" onchange="redraw5(this.value)" /></li>
+			<input id="input5" type="range" min="400" max="600" value="500" step="10" onchange="redraw5(this.value)" /></li>
             <li class="nav-header">Cost Assumptions</li>
             <li rel="popover" id="infotip" title="Cost of Additional Capacity" data-content="This value represents the average total cost of an additional installed watt of solar capacity. It includes the cost of the PV module, inverter, balance of systems and installation."><a href="#cost">Cost per Solar Watt: $<span id="range1"></span></a></p>
-			<input id="input1" type="range" min="50" max="200" value="100" step="2" onchange="redraw1(this.value)" /></li>
+			<input id="input1" type="range" min="50" max="150" value="100" step="2" onchange="redraw1(this.value)" /></li>
             <li class="nav-header">Control Panel</li>
 			<li><button class="btn danger" onclick="redrawAll()">Reset to Initial Values</button></li>
             </ul>
@@ -74,7 +74,7 @@
         <div class="span9">
           <div class="well" id="chart">
 			<h3>India Solar Adoption</h3>
-			<script src="./js/projection.js"></script>
+			<script src="./js/projection2.js"></script>
           </div>
 		<div class="well">
           <div class="row">
