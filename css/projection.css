@@ -2,9 +2,15 @@ body {
   padding-top: 60px;
   padding-bottom: 0px;
 }
+
 .sidebar-nav {
   padding: 9px 0;
 }
+
+.sidebar-nav p, a, li {
+  text-align: center;
+}
+
 .well {
   background-color: #fff;
   border: 1px solid #000;
@@ -13,10 +19,16 @@ body {
   border-radius: 0px;
   background-image: 0;
 }
+
+.well h2 {
+	text-align: center;
+}
+
 body {
 	font: 300 14px Helvetica Neue;
 	fill: #666;
 	}
+	
 .background {
 	background-image: url(../img/background.jpg);	
 }
@@ -25,13 +37,16 @@ text.title {
 	font: 300 24px Helvetica Neue;
 	fill: #666;
 	}
+	
 .chart rect {
 	fill: #575E27;
 	stroke: white;
 	}
+	
 h3 {
 	text-align: center;
 	}
+	
 .navbar-inner {
 	background-color: #575E27;
 	background-image: -moz-linear-gradient(top, #5D6629, #4F5723);
@@ -40,6 +55,21 @@ h3 {
 	background-image: -webkit-linear-gradient(top, #5D6629, #4F5723);
 	background-image: -o-linear-gradient(top, #5D6629, #4F5723);
 	background-image: linear-gradient(top, #5D6629, #4F5723);
+	
 .navbar .brand {
 	color: #D26014;
+}
+
+.subcontainer-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.subcontainer-fluid:before, .subcontainer-fluid:after {
+  display: table;
+  content: "";
+}
+
+.subcontainer-fluid:after {
+  clear: both;
 }

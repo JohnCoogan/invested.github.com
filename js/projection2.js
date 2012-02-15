@@ -13,6 +13,7 @@ var gdpinput = 1727111096363;
 	fgdpg = 0.08;
 	fcost = 1;
 	years = 10;
+	startyear = 0;
 	cgdpg = 0.088064;
 	gdpgforecast = new Array();
 	gdpforecast = new Array();
@@ -64,10 +65,14 @@ function calc(){
 	};
 		
 	data = pvtotals;
-	finalgdp = Math.round(gdpcurrent[years] / 10000000000) / 100;
-	finalgfcf = Math.round((gdpcurrent[years] * gfcfforecast[years]) / 10000000000) / 100;
-	finaleinv = Math.round((gdpcurrent[years] * gfcfforecast[years] * eiforecast[years]) / 10000000) / 100;
-	finalsinv = Math.round((gdpcurrent[years] * gfcfforecast[years] * eiforecast[years] * sforecast[years]) / 10000000) / 100;
+	finalgdp = (Math.round(gdpcurrent[years] / 10000000000) / 100).toFixed(2);
+	finalgfcf = (Math.round((gdpcurrent[years] * gfcfforecast[years]) / 10000000000) / 100).toFixed(2);
+	finaleinv = (Math.round((gdpcurrent[years] * gfcfforecast[years] * eiforecast[years]) / 10000000) / 100).toFixed(2);
+	finalsinv = (Math.round((gdpcurrent[years] * gfcfforecast[years] * eiforecast[years] * sforecast[years]) / 10000000) / 100).toFixed(2);
+	startgdp = (Math.round(gdpcurrent[startyear] / 10000000000) / 100).toFixed(2);
+	startgfcf = (Math.round((gdpcurrent[startyear] * gfcfforecast[startyear]) / 10000000000) / 100).toFixed(2);
+	starteinv = (Math.round((gdpcurrent[startyear] * gfcfforecast[startyear] * eiforecast[startyear]) / 10000000) / 100).toFixed(2);
+	startsinv = (Math.round((gdpcurrent[startyear] * gfcfforecast[startyear] * eiforecast[startyear] * sforecast[startyear]) / 10000000) / 100).toFixed(2);
 	}
 
 calc();
@@ -138,7 +143,7 @@ function draw() {
 		.style("font-weight", 400)
 		.attr("x", 30)
 		.attr("y", 125)
-		.text(Math.round(data[10]/100)/10);
+		.text((Math.round(data[10]/100)/10).toFixed(1));
 	chart.append("text")
 		.attr("class", "title")
 		.style("font-size", 30)
@@ -194,7 +199,7 @@ function draw() {
 		.attr("dx", -5) // padding-right
 		.attr("dy", ".35em") // vertical-align: middle
 		.attr("text-anchor", "middle") // text-align: middle
-		.text(function(d) { return Math.round(d/100)/10; });
+		.text(function(d) { return (Math.round(d/100)/10).toFixed(1); });
 
 	// Add lines for x & y axes.
 	chart.append("line")
@@ -222,35 +227,35 @@ function redraw() {
 function redraw1(newValue) {
 	fcost = newValue/100;
 	redraw();
-	document.getElementById("range1").innerHTML = newValue/100;
+	document.getElementById("range1").innerHTML = (newValue/100).toFixed(2);
 	updateNumbers();
 	}
 
 function redraw2(newValue) {
 	fgdpg = newValue/10000;
 	redraw();
-	document.getElementById("range2").innerHTML = newValue/100;
+	document.getElementById("range2").innerHTML = (newValue/100).toFixed(1);
 	updateNumbers();
 	}
 
 function redraw3(newValue) {
 	fgfcf = newValue/10000;
 	redraw();
-	document.getElementById("range3").innerHTML = newValue/100;
+	document.getElementById("range3").innerHTML = (newValue/100).toFixed(1);
 	updateNumbers();
 	}
 
 function redraw4(newValue) {
 	fenergyinv = newValue/10000;
 	redraw();
-	document.getElementById("range4").innerHTML = newValue/100;
+	document.getElementById("range4").innerHTML = (newValue/100).toFixed(1);
 	updateNumbers();
 	}
 
 function redraw5(newValue) {
 	fsinv = newValue/10000;
 	redraw();
-	document.getElementById("range5").innerHTML = newValue/100;
+	document.getElementById("range5").innerHTML = (newValue/100).toFixed(1);
 	updateNumbers();
 	}
 
@@ -260,15 +265,15 @@ function redrawAll() {
 	fgfcf = .35;
 	fenergyinv = .075;
 	fsinv = .05;
-	document.getElementById("range1").innerHTML = 1;
+	document.getElementById("range1").innerHTML = (fcost).toFixed(2);
 	document.getElementById("input1").value = 100;
-	document.getElementById("range2").innerHTML = fgdpg * 100;
+	document.getElementById("range2").innerHTML = (fgdpg * 100).toFixed(1);
 	document.getElementById("input2").value = fgdpg * 10000;
-	document.getElementById("range3").innerHTML = fgfcf * 100;
+	document.getElementById("range3").innerHTML = (fgfcf * 100).toFixed(1);
 	document.getElementById("input3").value = fgfcf * 10000;
-	document.getElementById("range4").innerHTML = fenergyinv * 100;
+	document.getElementById("range4").innerHTML = (fenergyinv * 100).toFixed(1);
 	document.getElementById("input4").value = fenergyinv * 10000;
-	document.getElementById("range5").innerHTML = fsinv * 100;
+	document.getElementById("range5").innerHTML = (fsinv * 100).toFixed(1);
 	document.getElementById("input5").value = fsinv * 10000;
 	updateNumbers();
 	redraw();
@@ -278,7 +283,11 @@ function updateNumbers() {
 	document.getElementById("range20").innerHTML = finalgdp;
 	document.getElementById("range30").innerHTML = finalgfcf;
 	document.getElementById("range40").innerHTML = finaleinv;
-	document.getElementById("range50").innerHTML = finalsinv;	
+	document.getElementById("range50").innerHTML = finalsinv;
+	document.getElementById("range21").innerHTML = startgdp;
+	document.getElementById("range31").innerHTML = startgfcf;
+	document.getElementById("range41").innerHTML = starteinv;
+	document.getElementById("range51").innerHTML = startsinv;	
 }	
 	
 redrawAll();

@@ -15,8 +15,14 @@
 
     <!-- Styles -->
     <link href="./css/bootstrap.css" rel="stylesheet">
-    <link href="./css/projection.css" rel="stylesheet">
     <link href="./css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./css/projection.css" rel="stylesheet">
+	<style type="text/css">
+	td
+	{
+	text-align:center;
+	}
+	</style>
   </head>
 
   <body >
@@ -37,7 +43,7 @@
               <li><a href="http://investeddevelopment.com/blog/">Blog</a></li>
  			  <li><a href="http://bostoneta.com/">BETA</a></li>
  			  <li><a href="http://investeddevelopment.com/about/">About</a></li>
-              <li><a href="http://investeddevelopment.com/blog/">Back to the blog post.</a></li>
+              <li><a href="http://investeddevelopment.com/blog/">Return to Post</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -49,31 +55,90 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-            <li class="nav-header"><h3>2020 Projections</h3></li>
-            <li class="nav-header">Expenditure Assumptions</li>
-			<li rel="popover" id="infotip" title="Gross Domestic Product" data-content="GDP refers to the market value of all final goods and services produced within a country."><a href="#gdp">GDP Growth Rate: <span id="range2"></span>%</a></p>
-			GDP: $ <span id="range20"></span> Trillion</p>
+            <li class="nav-header"><h3>Model Inputs</h3></li>
+			<li rel="popover" id="infotip" title="Gross Domestic Product" data-content="GDP refers to the market value of all final goods and services produced within a country.">
+			<h3>Gross Domestic Product</h3>
+			<div class="subcontainer-fluid">
+		      <div class="row-fluid">
+			      <div class="span6">
+					<p>Current</p>
+					<p>$ <span id="range21"></span> Trillion</p>
+				  </div>
+			      <div class="span6">
+					<p>Projected</p>
+					<p>$ <span id="range20"></span> Trillion</p>
+				  </div>
+				</div><!--/.row-fluid -->
+			</div><!--/.container-fluid -->
+			<h4>GDP Growth Rate: <span id="range2"></span>%</h4>
 			<input id="input2" type="range" min="600" max="1000" value="800" step="10" onchange="redraw2(this.value)" /></li>
-			<li rel="popover" id="infotip" title="Fixed Capital Formation" data-content="Fixed capital formation measures the value of new fixed assets by businesses, governments and households. It roughly shows how much of the new value added in the economy (GDP growth) is invested rather than consumed."><a href="#capital">Formation of Fixed Capital: <span id="range3"></span>%</a></p>
-			Infrastructure Spending: $ <span id="range30"></span> Trillion</p>
+
+			<li rel="popover" id="infotip" title="Fixed Capital Formation" data-content="Fixed capital formation measures the value of new fixed assets by businesses, governments and households. It roughly shows how much of the new value added in the economy (GDP growth) is invested rather than consumed.">			
+				<h3>Infrastructure Spending</h3>
+				<div class="subcontainer-fluid">
+			      <div class="row-fluid">
+				      <div class="span6">
+						<p>Current</p>
+						<p>$ <span id="range31"></span> Trillion</p>
+					  </div>
+				      <div class="span6">
+						<p>Projected</p>
+						<p>$ <span id="range30"></span> Trillion</p>
+					  </div>
+					</div><!--/.row-fluid -->
+				</div><!--/.container-fluid -->
+				<h4>Contribution to GDP: <span id="range3"></span>%</h4>
 			<input id="input3" type="range" min="3000" max="4000" value="4000" step="10" onchange="redraw3(this.value)" /></li>
-			<li rel="popover" id="infotip" title="Energy Investment" data-content="Investment in energy projects with private participation measures infrastructure projects in energy that directly or indirectly serve the public."><a href="#energy">Investment in Energy: <span id="range4"></span>%</a></p>
-			Energy Spending: $ <span id="range40"></span> Billion</p>
+
+			<li rel="popover" id="infotip" title="Energy Investment" data-content="Investment in energy projects with private participation measures infrastructure projects in energy that directly or indirectly serve the public.">
+				<h3>Energy Spending</h3>
+				<div class="subcontainer-fluid">
+			      <div class="row-fluid">
+				      <div class="span6">
+						<p>Current</p>
+						<p>$ <span id="range41"></span> Billion</p>
+					  </div>
+				      <div class="span6">
+						<p>Projected</p>
+						<p>$ <span id="range40"></span> billion</p>
+					  </div>
+					</div><!--/.row-fluid -->
+				</div><!--/.container-fluid -->
+			<h4>Share of Infrastructure: <span id="range4"></span>%</h4>
 			<input id="input4" type="range" min="500" max="1000" value="750" step="10" onchange="redraw4(this.value)" /></li>
-			<li rel="popover" id="infotip" title="Rate of Solar Adoption" data-content="This metric measures the annual increase in the share of energy investment that goes towards solar."><a href="#solar">Solar Share of Energy: <span id="range5"></span>%</a></p>
-			Solar Spending: $ <span id="range50"></span> Billion</p>
+
+			<li rel="popover" id="infotip" title="Rate of Solar Adoption" data-content="This metric measures the annual increase in the share of energy investment that goes towards solar.">
+				<h3>Solar Spending</h3>
+				<div class="subcontainer-fluid">
+			      <div class="row-fluid">
+				      <div class="span6">
+						<p>Current</p>
+						<p>$ <span id="range51"></span> Billion</p>
+					  </div>
+				      <div class="span6">
+						<p>Projected</p>
+						<p>$ <span id="range50"></span> Billion</p>
+					  </div>
+					</div><!--/.row-fluid -->
+				</div><!--/.container-fluid -->
+				<h4>Share of Energy: <span id="range5"></span>%</h4>
 			<input id="input5" type="range" min="400" max="600" value="500" step="10" onchange="redraw5(this.value)" /></li>
-            <li class="nav-header">Cost Assumptions</li>
-            <li rel="popover" id="infotip" title="Cost of Additional Capacity" data-content="This value represents the average total cost of an additional installed watt of solar capacity. It includes the cost of the PV module, inverter, balance of systems and installation."><a href="#cost">Cost per Solar Watt: $<span id="range1"></span></a></p>
-			<input id="input1" type="range" min="50" max="150" value="100" step="2" onchange="redraw1(this.value)" /></li>
-            <li class="nav-header">Control Panel</li>
-			<li><button class="btn danger" onclick="redrawAll()">Reset to Initial Values</button></li>
-            </ul>
+
+            <li rel="popover" id="infotip" title="Cost of Additional Capacity" data-content="This value represents the average total cost of an additional installed watt of solar capacity. It includes the cost of the PV module, inverter, balance of systems and installation.">
+				<h3>Total Installation Cost</h3>
+				<p>Current $ 3.40</p>
+				<h4>Average Cost per Watt: $ <span id="range1"></span></h4>
+				<input id="input1" type="range" min="50" max="150" value="100" step="2" onchange="redraw1(this.value)" />
+			</li>
+            
+			<li><button class="btn danger" onclick="redrawAll()">Reset to Base Case Values</button></li>
+           </ul>
           </div><!--/.well -->        
         </div><!--/span-->
+
         <div class="span9">
           <div class="well" id="chart">
-			<h3>India Solar Adoption</h3>
+			<h2>Total Installed Solar Capacity Projection for India</h2>
 			<script src="./js/projection2.js"></script>
           </div>
 		<div class="well">
